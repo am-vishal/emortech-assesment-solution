@@ -4,228 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>emortech-assesment-test</title>
+    <title>Reset Password Using Vanilla JavaScript</title>
     <meta name="description" content="created by Vishal Kumar">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-    <style>
-        :root {
-            --success-color: #2ecc71;
-            --error-color: #EB5757;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            background: url('Bg.png') !important;
-            background-repeat: no-repeat !important;
-            background-size: cover !important;
-            background-attachment: fixed !important;
-            background-position: center center !important;
-            align-items: center;
-        }
-
-        .container {
-            width: 35em;
-            margin-bottom: 7em;
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        .passChanged {
-            display: none;
-            padding: 30px 40px;
-            margin: 9em 0;
-            background: transparent !important;
-        }
-
-        .form {
-            padding: 30px 40px;
-            margin-top: 6em;
-            overflow: hidden;
-        }
-
-        .form-control {
-            background: transparent !important;
-            padding-bottom: 7em;
-            position: relative;
-            border: none;
-        }
-
-        .form-control label {
-            color: #000000;
-            display: block;
-            margin-bottom: 4px !important;
-            font-family: "Avenir Next";
-            font-style: normal;
-            font-weight: bold;
-            font-size: 24px;
-            letter-spacing: 2px;
-
-        }
-
-        .form-control input {
-            border: 2px solid #000000;
-            background: #F2F2F2 !important;
-            border-radius: 4px;
-            display: block;
-            width: 100%;
-            padding: 10px;
-            font-size: 14px;
-        }
-
-        .form-control input:focus {
-            outline: 0;
-            border-color: #777;
-        }
-
-        .form-control.success input {
-            border-color: var(--success-color);
-        }
-
-        .form-control.error input {
-            border-color: var(--error-color);
-        }
-
-        .form-control small {
-            color: var(--error-color);
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            margin-left: 1em;
-            visibility: hidden;
-        }
-
-        .form-control.error small {
-            visibility: visible;
-        }
-
-        .form button,
-        button {
-            cursor: pointer;
-            background-color: #000000;
-            color: white;
-            outline: none;
-            border-radius: 8px;
-            padding: 10px;
-            margin-top: 30px;
-            width: 100%;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 24px;
-            line-height: 36px;
-            letter-spacing: 4px;
-        }
-
-
-        .navbar {
-            background-color: #33A0D9;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-
-        }
-
-        .navbar-logo {
-            left: 0;
-            position: absolute;
-            height: auto;
-            width: auto;
-        }
-
-        .nav-links {
-            position: absolute;
-            right: 0;
-            float: right;
-            display: inline;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        ul {
-            list-style-type: none;
-            justify-content: center;
-            align-items: center;
-            display: inline-flex;
-        }
-
-        ul>li {
-            padding: 1em;
-            justify-content: center;
-            align-items: center;
-        }
-
-        ul>li>a {
-            color: black;
-            font-family: "Avenir Next" !important;
-            font-style: normal;
-            font-weight: bold;
-            font-size: 18px;
-            text-decoration: none !important;
-        }
-
-        #login {
-            background: #FFFFFF;
-            border-radius: 5px;
-            padding: 5px 15px;
-        }
-
-        .navbar-brand>img {
-            cursor: pointer;
-        }
-
-        @media (min-width:0px) and (max-width:190px) {
-            .navbar-brand>img {
-                width: 40vw;
-            }
-        }
-
-        .top {
-            background-color: #33A0D9;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            text-align: center;
-            z-index: 2;
-        }
-
-        footer {
-            background-color: #33A0D9;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-        }
-
-        .footer-links {
-            margin: 0 20em 0 0;
-            padding: 0;
-        }
-
-        .footer-links>li>a {
-            color: white !important;
-            font-family: "Avenir Next" !important;
-            font-size: 18px;
-            font-style: normal;
-            font-weight: 700;
-            line-height: 36px;
-            letter-spacing: 0em;
-            text-align: left;
-
-        }
-    </style>
+    <link href="/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -236,17 +18,11 @@
             <span class="navbar-brand">
                 <img src="logo.png" alt="navbar-logo" onclick=location.reload(); height="auto" width="100vw">
             </span>
-            <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="background-color: black; color: white;">☰</span>
-            </button> -->
-            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent" style="position: absolute; right: 0;"> -->
             <ul>
                 <li class="nav-item"><a href="#">Join a Race</a></li>
                 <li class="nav-item"><a href="#">Leaderboard</a></li>
                 <li class="nav-item"><a href="#" id="login">Login</a></li>
             </ul>
-            <!-- </div> -->
         </nav>
     </div>
     <!-- Navbar End Here  -->
@@ -270,11 +46,9 @@
             <h2>Password Changed</h2>
             <p style="font-weight: bold; text-align: center;">Your password has been updated! Now get back
                 in the driver seat, racers are waiting for you!</p>
-            <button onclick="window.open('https://amvishal.tech/')">Join a Race</button>
+            <button onclick="window.open('/join')">Join a Race</button>
         </div>
     </div>
-
-
     <footer>
         <ul class="footer-links">
             <li class="nav-item"><a href="#">About Us</a></li>
@@ -284,87 +58,7 @@
         </ul>
     </footer>
 
-
-
-    <script>
-        const form = document.getElementById('form');
-        const password = document.getElementById('password');
-        const password2 = document.getElementById('password2');
-        const passChanged = document.getElementById('passChanged')
-
-
-        form.addEventListener('submit', (e) => {
-            let messages = []
-            if (password.value === password2.value && password.value.length >= 6 && password2.value.length >= 6) {
-                form.style.display = "none";
-                passChanged.style.display = "block";
-            }
-
-            if (messages.length > 0) {
-                e.preventDefault()
-                passChanged.style.display = "block";
-            }
-        })
-
-        // Show input error message
-        function showError(input, message) {
-            const formControl = input.parentElement;
-            formControl.className = 'form-control error';
-            const small = formControl.querySelector('small');
-            small.innerText = message;
-        }
-
-        // Show success outline
-        function showSuccess(input) {
-            const formControl = input.parentElement;
-            formControl.className = 'form-control success';
-        }
-
-        // Check required fields
-        function checkRequired(inputArr) {
-            inputArr.forEach(function (input) {
-                if (input.value.trim() === '') {
-                    showError(input, `${getFieldName(input)} is required`);
-                } else {
-                    showSuccess(input);
-                }
-            });
-        }
-
-        // Check input length
-        function checkLength(input, min, max) {
-            if (input.value.length < min) {
-                showError(input, `${getFieldName(input)} must be at least ${min} characters`);
-            } else if (input.value.length > max) {
-                showError(input, `${getFieldName(input)} must be less than ${max} characters`);
-            } else {
-                showSuccess(input);
-            }
-        }
-
-        // Check passwords match
-        function checkPasswordsMatch(input1, input2) {
-            if (input1.value !== input2.value) {
-                showError(input2, 'Passwords do not match');
-            }
-        }
-
-        // Get fieldname
-        function getFieldName(input) {
-            return input.id.charAt(0).toUpperCase() + input.id.slice(1);
-        }
-
-        // Event listeners
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            checkRequired([password, password2]);
-            checkLength(password, 6, 25);
-            checkPasswordsMatch(password, password2);
-        });
-    </script>
-    <script>
-
-    </script>
+    <script src="/script.js"> </script>
 </body>
 
 </html>
